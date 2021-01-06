@@ -1,0 +1,19 @@
+.errorContainer {
+  background-color:rgb(255, 215, 215); 
+  padding:3em;
+  letter-spacing: 0.5px;
+  line-height: 2rem;
+  border:1px solid rgb(163, 0, 0);
+}
+
+.errorHeading {
+  font-size:1.2em;
+  font-weight:bold;
+  color:rgb(163, 0, 0);
+}
+
+.errorMsg {
+  font-size:1.2em; 
+  font-weight:bold;
+  color:rgb(163,0,0);
+}
