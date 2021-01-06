@@ -1,0 +1,43 @@
+:root {
+  --boxBackgroundColor: #DDDBCB;
+  --boxColor: #1b9aaa;
+  --boxOnHoverBackgroundColor: #ffffff;
+  --boxOnHoverColor: #8a2be2;
+}
+
+.box {
+  background-color: var(--boxBackgroundColor);
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10vw;
+  cursor: pointer;
+  color: var(--boxColor);
+  font-weight: bold;
+  font-size: 2em;
+  border-radius: 3px;
+  transition-duration: 0.5s;
+}
+
+.box:hover {
+  background-color: var(--boxOnHoverBackgroundColor);
+  color: var(--boxOnHoverColor);
+}
+
+.disable {
+  pointer-events: none;
+}
+
+@media(max-width:400px) {
+  .box {
+    width: 12vw;
+  }
+}
+
+@media (max-width: 312px) {
+  .box {
+    width: 7vw;
+  }
+}

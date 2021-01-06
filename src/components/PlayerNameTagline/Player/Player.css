@@ -1,0 +1,8 @@
+.player { 
+  color:#1b9aaa;
+}
+
+.playerName:after{
+  border-bottom:1px solid black;
+  width:100%;
+}

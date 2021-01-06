@@ -1,0 +1,11 @@
+.tagLine {
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  color:#1b9aaa;
+}
+
+.playerNameTagline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
