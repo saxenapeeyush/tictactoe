@@ -80,16 +80,33 @@ class BoxContainer extends React.Component {
 
   getBoxes = () => {
     const { boxes } = this.state;
-
+    let count = 1;
     return boxes.map((content, idx) => {
-      return (
-        <Box
-          boxClick={this.boxClickHandler.bind(this, idx)}
-          id={idx}
-          data={content}
-          key={idx}
-        />
-      );
+      if(count % 3 === 0) {
+        count++;
+        return (
+            <Box 
+              isBreakLine = {true}
+              boxClick={this.boxClickHandler.bind(this, idx)}
+              id={idx}
+              data={content}
+              key={idx}
+           />
+        );
+      }
+
+      else { 
+        count++;
+        return (
+          <Box
+            isBreakLine = {false}
+            boxClick={this.boxClickHandler.bind(this, idx)}
+            id={idx}
+            data={content}
+            key={idx}
+          />
+        );
+      }
     });
   };
 
