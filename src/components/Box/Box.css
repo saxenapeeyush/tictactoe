@@ -30,14 +30,9 @@
   pointer-events: none;
 }
 
-@media(max-width:400px) {
+@media(max-width:415px) {
   .box {
-    width: 12vw;
+    width: 17vw;
   }
 }
 
-@media (max-width: 312px) {
-  .box {
-    width: 7vw;
-  }
-}
