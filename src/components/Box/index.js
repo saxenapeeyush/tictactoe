@@ -10,7 +10,7 @@ const Box = (props) => {
   
   if(isBreakLine) {
     return (
-    <div onClick={boxClick} className={`box ${isDisabled ? "disable":"enable"}`}>{newData} <br/></div>
+    <div onClick={boxClick} className={`box ${isDisabled ? "disable":"enable"}`}><div>{newData}</div><br/></div>
     );
   }
   else {
