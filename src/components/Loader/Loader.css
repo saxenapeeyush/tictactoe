@@ -1,17 +1,21 @@
-.loaderContainer {
-  background-color:#262626;
+:root {
+  --loaderContainerColor : #262626;
+}
+
+.lo965LoaderContainer {
+  background-color: var(--loaderContainerColor);
   color:white;
   height: 100vh;
   width: 100vw;;
 }
 
-.loaderContent {
+.lo965LoaderContent {
   display: flex;
   justify-content: center;
   align-items: center;
   height:100%;
 }
 
-.loaderContent i {
+.lo965LoaderContent i {
   font-size:2rem;
 }

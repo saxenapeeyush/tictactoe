@@ -1,19 +1,24 @@
-.errorContainer {
-  background-color:rgb(255, 215, 215); 
+:root {
+  --errorContainerBackgroundColor : rgb(255, 215, 215);
+  --errorContainerBorderColor : rgb(163,0,0);
+}
+
+.er908ErrorContainer {
+  background-color: var(--errorContainerBackgroundColor);
   padding:3em;
   letter-spacing: 0.5px;
   line-height: 2rem;
-  border:1px solid rgb(163, 0, 0);
+  border:1px solid var(--errorContainerBorderColor);
 }
 
-.errorHeading {
+.er908ErrorHeading {
   font-size:1.2em;
   font-weight:bold;
-  color:rgb(163, 0, 0);
+  color : var(--errorContainerBorderColor);
 }
 
-.errorMsg {
+.er908ErrorMsg {
   font-size:1.2em; 
   font-weight:bold;
-  color:rgb(163,0,0);
+  color: var(--errorContainerBorderColor);
 }

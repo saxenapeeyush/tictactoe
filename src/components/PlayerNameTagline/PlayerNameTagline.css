@@ -1,11 +1,21 @@
-.tagLine {
-  font-weight: bold;
-  letter-spacing: 0.5px;
-  color:#1b9aaa;
+:root {
+  --playerNameTaglineColor : #1b9aaa;
+  --playerNameStyle : #014750;
 }
 
-.playerNameTagline {
+.pnt670TagLine {
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  color: var(--playerNameTaglineColor);
+}
+
+.pnt670PlayerNameTagline {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.pnt670PlayerNameStyle {
+  color: var(--playerNameStyle);
+  textDecoration:"underline";
 }

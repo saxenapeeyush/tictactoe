@@ -1,11 +1,11 @@
 import React from "react";
 
-import './Loader.css';
+import './loader.css';
 
 const Loader = (props) => {
   return (
-    <div className="loaderContainer">
-      <div className="loaderContent">
+    <div className="lo965LoaderContainer">
+      <div className="lo965LoaderContent">
         <div>
         <i className="fas fa-cog fa-spin"></i>
       </div>

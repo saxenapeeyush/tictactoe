@@ -1,23 +1,16 @@
 import React from "react";
 
-import "./Box.css";
+import "./box.css";
 
 const Box = (props) => {
-  const { data , boxClick , isBreakLine } = props;
 
-  const newData = data ? data : "-";
-  const isDisabled = newData.trim() !== '-';
-  
-  if(isBreakLine) {
-    return (
-    <div onClick={boxClick} className={`box ${isDisabled ? "disable":"enable"}`}><div>{newData}</div><br/></div>
+  const { data , boxClick , isBreakLine , isDisabled } = props;
+  return (
+    <div onClick={boxClick} className={`b490Box ${isDisabled ? "b490Disable":"b490Enable"}`}>
+    <div>{data ? data : '-'}</div>
+    {isBreakLine ? <br/> : null }
+    </div>
     );
-  }
-  else {
-    return (
-    <div onClick={boxClick} className={`box ${isDisabled ? "disable":"enable"}`}>{newData}</div>
-    );
-  }
 };
 
 export default Box;

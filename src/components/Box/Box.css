@@ -5,7 +5,7 @@
   --boxOnHoverColor: #8a2be2;
 }
 
-.box {
+.b490Box {
   background-color: var(--boxBackgroundColor);
   padding: 10px;
   margin: 10px;
@@ -21,17 +21,17 @@
   transition-duration: 0.5s;
 }
 
-.box:hover {
+.b490Box:hover {
   background-color: var(--boxOnHoverBackgroundColor);
   color: var(--boxOnHoverColor);
 }
 
-.disable {
+.b490Disable {
   pointer-events: none;
 }
 
 @media(max-width:415px) {
-  .box {
+  .b490Box {
     width: 17vw;
   }
 }
