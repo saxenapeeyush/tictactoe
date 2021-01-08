@@ -12,4 +12,5 @@ const Header = (props) => {
     </div>
   );
 };
-export default Header;
+
+export default React.memo(Header);

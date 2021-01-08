@@ -12,4 +12,5 @@ const Error = (props) => {
     </div>
   );
 };
-export default Error;
+
+export default React.memo(Error);
