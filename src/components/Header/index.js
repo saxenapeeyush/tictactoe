@@ -1,15 +1,14 @@
 import React from "react";
 
-import Utility from '../../utils/configs/config';
+import { GAME_NAME } from '../../utils/configs/config';
 
-import "./Header.css";
+import "./header.css";
 
 const Header = (props) => {
-  const { gameName } = Utility;
   
   return (
-    <div className="header">
-      <h1>{gameName} Game</h1>
+    <div className="he219Header">
+      <h1>{GAME_NAME} Game</h1>
     </div>
   );
 };

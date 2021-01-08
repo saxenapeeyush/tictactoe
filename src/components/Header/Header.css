@@ -1,5 +1,9 @@
-.header h1 {
-  color:#1B9AAA;
+:root {
+  --headerHeadingColor : #1b9aaa;
+}
+
+.he219Header h1 {
+  color: var(--headerHeadingColor);
   font-weight:bolder;
   letter-spacing: 0.5px;
   text-align: center;

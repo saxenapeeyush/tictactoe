@@ -5,7 +5,7 @@
   --outerBoxContainerBoxShadowColor:#ccc;
 }
 
-.boxContainer {
+.bc598BoxContainer {
   background-color: var(--boxBackground);
   display: flex;
   justify-content: center;
@@ -18,7 +18,7 @@
   margin-bottom: 25px;
 }
 
-.outerBoxContainer {
+.bc598OuterBoxContainer {
   box-shadow: 10px 10px 5px var(--outerBoxContainerBoxShadowColor);
   padding: 20px;
   border: 1px solid var(--outerBoxContainerBorderColor);
@@ -26,7 +26,7 @@
   margin: 20px;
 }
 
-.resetBtn button {
+.bc598ResetBtn button {
   background-color: var(--resetBtnColor) !important;
   color:wheat !important;
   border:none;
@@ -37,29 +37,29 @@
   border-radius: 3px;
 }
 
-.resetBtn i {
+.bc598ResetBtn i {
   transition: 0.5s !important;
   transform: rotate(0deg) scale(1,1);
 }
 
-.resetBtn i:hover {
+.bc598ResetBtn i:hover {
   transform: rotate(90deg) scale(1.1,1.1);
 }
 
-.resetBtn {
+.bc598ResetBtn {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 @media(max-width:541px) {
-  .boxContainer {
+  .bc598BoxContainer {
     width:54vw;
   }
 }
 
 @media(max-width:415px) {
-  .boxContainer {
+  .bc598BoxContainer {
     width:74vw;
   }
 }

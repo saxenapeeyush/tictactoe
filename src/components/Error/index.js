@@ -1,14 +1,14 @@
 import React from "react";
 
-import './Error.css';
+import './error.css';
 
 const Error = (props) => {
   const { msg } = props;
   
   return (
-    <div className="errorContainer">
-      <div className="errorHeading">Error Occured</div>
-      <p className="errorMsg">{msg}</p>
+    <div className="er908ErrorContainer">
+      <div className="er908ErrorHeading">Error Occured</div>
+      <p className="er908ErrorMsg">{msg}</p>
     </div>
   );
 };

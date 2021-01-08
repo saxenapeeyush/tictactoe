@@ -1,7 +1,7 @@
 import React from "react";
 
-import Utility from "../../utils/configs/config";
-import Logic from "../../businesslogics/gamelogic/tictactoelogic";
+import { NAME_NOT_SPECIFIED , CHOOSE_X_OR_O_NOT_SPECIFIED , EITHER_X_OR_O , UTILITY } from "../../utils/configs/config";
+import { nullChecker , ticTacToe } from '../../utils/helper';
 
 import Box from "../Box";
 import Header from "../Header";
@@ -10,18 +10,19 @@ import Button from "../Button";
 import Error from "../Error";
 import PlayerNameTagline from "../PlayerNameTagline";
 
-import "./BoxContainer.css";
+import "./boxContainer.css";
 
 class BoxContainer extends React.Component {
 
   state = {
     boxes: Array(9).fill(null),
-    currentXorO: Utility.eitherXorO,
+    currentXorO: EITHER_X_OR_O,
     isLoading: true,
     winnerName: "",
-    playerNames: Utility.initialPlayerNames,
+    playerNames: UTILITY.initialPlayerNames,
     errorMessage: "",
     counter: 0,
+    isGameDrawn : false
   };
 
   componentDidMount() {
@@ -34,23 +35,25 @@ class BoxContainer extends React.Component {
 
   render() {
 
-    const { errorMessage , isLoading , playerNames , winnerName ,currentXorO } = this.state;
+    const { errorMessage , isLoading , playerNames , winnerName ,currentXorO , isGameDrawn } = this.state;
 
     if (errorMessage.trim()) {
       return <Error msg={errorMessage.trim()} />;
+
     } else if (isLoading) {
       return <Loader />;
+
     } else
       return (
-        <div className="mainContainer">
+        <div className="bc598MainContainer">
           <Header />
-          <div className="outerBoxContainer">
+          <div className="bc598OuterBoxContainer">
             <div>
-              <PlayerNameTagline isXorO = {currentXorO}
+              <PlayerNameTagline gameDrawn = {isGameDrawn} isXorO = {currentXorO}
                 playerNames={playerNames}
                 isWinner={winnerName}
               />
-              <div className="boxContainer">
+              <div className="bc598BoxContainer">
                 
                 {this.getBoxes()}
 
@@ -68,7 +71,7 @@ class BoxContainer extends React.Component {
 
   getButton = () => {
     return (
-      <div className="resetBtn">
+      <div className="bc598ResetBtn">
         <Button
           click={this.reset}
           btnName="Reset"
@@ -82,13 +85,14 @@ class BoxContainer extends React.Component {
     const { boxes } = this.state;
     let count = 1;
     return boxes.map((content, idx) => {
+      console.log(content);
       if(count % 3 === 0) {
         count++;
         return (
             <Box 
+              isDisabled = {content ? true : false}
               isBreakLine = {true}
               boxClick={this.boxClickHandler.bind(this, idx)}
-              id={idx}
               data={content}
               key={idx}
            />
@@ -99,6 +103,7 @@ class BoxContainer extends React.Component {
         count++;
         return (
           <Box
+            isDisabled = {content ? true : false}
             isBreakLine = {false}
             boxClick={this.boxClickHandler.bind(this, idx)}
             id={idx}
@@ -112,7 +117,6 @@ class BoxContainer extends React.Component {
 
   takeInputFromUser = () => {
     const { playerNames,currentXorO }  = this.state;
-    const { chooseXorONotSpecified , nameNotSpecified , nullChecker } = Utility;
 
     let firstName = prompt(
       "Enter First Player Name ? ",
@@ -121,7 +125,7 @@ class BoxContainer extends React.Component {
 
     if (nullChecker(firstName)) {
 
-      this.nullCheckerErrorHandler("First",nameNotSpecified);
+      this.nullCheckerErrorHandler("First",NAME_NOT_SPECIFIED);
       return;
 
     } 
@@ -135,7 +139,7 @@ class BoxContainer extends React.Component {
     
     if (nullChecker(option1)) {
 
-      this.nullCheckerErrorHandler(chooseXorONotSpecified,"");
+      this.nullCheckerErrorHandler(CHOOSE_X_OR_O_NOT_SPECIFIED,"");
       return;
 
     }
@@ -147,7 +151,7 @@ class BoxContainer extends React.Component {
 
     if (nullChecker(secondName)) {
 
-      this.nullCheckerErrorHandler("Second",nameNotSpecified);
+      this.nullCheckerErrorHandler("Second",NAME_NOT_SPECIFIED);
       return;
 
     }
@@ -187,6 +191,7 @@ class BoxContainer extends React.Component {
       boxes: Array(9).fill(null),
       counter: 0,
       winnerName: "",
+      isGameDrawn : false
     });
 
   };
@@ -207,7 +212,7 @@ class BoxContainer extends React.Component {
     
     const { boxes } = this.state;
 
-    const checkIfWinner = Logic.ticTacToe(boxes);
+    const checkIfWinner = ticTacToe(boxes);
 
     if (checkIfWinner) {
 
@@ -229,13 +234,35 @@ class BoxContainer extends React.Component {
         winnerName: winnerName,
         counter: 0,
       });
+
+      this.makeAllBoxDisable();
+
       setTimeout(() => {
           this.reset();
+          this.makeAllBoxEnable();
       },2500);
     } 
     else if (this.state.counter === 8) {
-      this.reset();
+      this.setState({isGameDrawn : true});
+      setTimeout(() => {
+        this.reset();
+      },2500);
     }
   };
+
+  makeAllBoxDisable = () => {
+
+    const newBoxes = Array(9).fill("-");
+    this.setState({boxes:newBoxes});
+
+  }
+
+  makeAllBoxEnable = () => {
+
+    const newBoxes = Array(9).fill(null);
+    this.setState({boxes:newBoxes});
+
+  }
+
 }
 export default BoxContainer;

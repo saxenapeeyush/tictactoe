@@ -1,8 +1,13 @@
-.player { 
-  color:#1b9aaa;
+:root {
+  --playerColor : #1b9aaa;
+  --playerNameBorderColor : black;
 }
 
-.playerName:after{
-  border-bottom:1px solid black;
+.pl367Player { 
+  color: var(--playerColor);
+}
+
+.pl367PlayerName:after{
+  border-bottom:1px solid var(--playerNameBorderColor);
   width:100%;
 }
