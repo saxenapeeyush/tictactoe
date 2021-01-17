@@ -1,6 +1,6 @@
 import React from "react";
 
-import './error.css';
+import './Error.css';
 
 const Error = (props) => {
   const { msg } = props;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './player.css';
+import './Player.css';
 
 const Player = (props) => {
   const { playerName , playerScore , playerChoose } = props;

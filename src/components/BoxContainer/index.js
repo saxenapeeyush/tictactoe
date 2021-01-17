@@ -9,7 +9,7 @@ import Button from "../Button";
 import Error from "../Error";
 import PlayerNameTagline from "../PlayerNameTagline";
 
-import "./boxContainer.css";
+import "./BoxContainer.css";
 
 class BoxContainer extends React.Component {
 
