@@ -12,6 +12,9 @@ export const UTILITY = {
     }
   }
 }
+
+export const NAME_VALIDATOR = "Name should be minimum of length 3";
+
 export const GAME_NAME = "Tic Tac Toe";
 
 export const GAME_DRAWN = "Game Drawn Between Players";

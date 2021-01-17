@@ -1,6 +1,6 @@
 import React from "react";
 
-import './loader.css';
+import './Loader.css';
 
 const Loader = (props) => {
   return (
@@ -13,4 +13,5 @@ const Loader = (props) => {
     </div>
   );
 };
-export default Loader;
+
+export default React.memo(Loader);

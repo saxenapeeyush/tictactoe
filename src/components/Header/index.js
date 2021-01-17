@@ -2,7 +2,7 @@ import React from "react";
 
 import { GAME_NAME } from '../../utils/configs/config';
 
-import "./header.css";
+import "./Header.css";
 
 const Header = (props) => {
   
@@ -12,4 +12,5 @@ const Header = (props) => {
     </div>
   );
 };
-export default Header;
+
+export default React.memo(Header);

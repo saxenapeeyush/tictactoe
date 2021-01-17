@@ -4,7 +4,7 @@ import { TAG_LINE , WINNER_TAG_LINE , GAME_DRAWN } from '../../utils/configs/con
 
 import Player from './Player';
 
-import "./playerNameTagline.css";
+import "./PlayerNameTagline.css";
 
 const PlayerNameTagline = (props) => {
   

@@ -1,7 +1,43 @@
+:root {
+  --resetBtnColor:#014750;
+  --resetBtnTextColor :wheat;
+}
+
 .bu345FlexBtn {
   display: flex;
   width:100%;
   justify-content: space-between;
   align-items: center;
   cursor:pointer;
+}
+
+.bu345ResetBtn button {
+  background-color: var(--resetBtnColor) !important;
+  color:var(--resetBtnTextColor) !important;
+  border:none;
+  padding:10px 20px;
+  font-weight:bold;
+  font-size:1.2rem;
+  letter-spacing: 0.5px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.bu345ResetBtn i {
+  transition: 0.5s !important;
+  transform: rotate(0deg) scale(1,1);
+}
+
+.bu345ResetBtn:hover i {
+  transform: rotate(90deg) scale(1.1,1.1);
+}
+
+.bu345ResetBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bu345FlexBtn .bu345BtnName {
+  margin:0rem 1rem;
 }

@@ -1,18 +1,18 @@
 import React from 'react';
 
-import './button.css';
+import './Button.css';
 
 const Button = (props) => {
   const iconClasses = props.iconClasses.join(" ");
   const { btnName , click } = props;
 
   return (
-    <div>
+    <div className ="bu345ResetBtn">
       <button
         onClick={click}
       >
         <div className="bu345FlexBtn">
-          <div>{btnName}</div>
+          <div className = "bu345BtnName">{btnName}</div>
           <div><i className={iconClasses}></i></div>
         </div>
       </button>

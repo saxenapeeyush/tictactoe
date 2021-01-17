@@ -1,6 +1,5 @@
 :root {
   --boxBackground:#1b9aaa;
-  --resetBtnColor:#014750;
   --outerBoxContainerBorderColor:#eee;
   --outerBoxContainerBoxShadowColor:#ccc;
 }
@@ -24,32 +23,6 @@
   border: 1px solid var(--outerBoxContainerBorderColor);
   text-align: center;
   margin: 20px;
-}
-
-.bc598ResetBtn button {
-  background-color: var(--resetBtnColor) !important;
-  color:wheat !important;
-  border:none;
-  padding:10px 20px;
-  font-weight:bold;
-  font-size:1.2rem;
-  letter-spacing: 0.5px;
-  border-radius: 3px;
-}
-
-.bc598ResetBtn i {
-  transition: 0.5s !important;
-  transform: rotate(0deg) scale(1,1);
-}
-
-.bc598ResetBtn i:hover {
-  transform: rotate(90deg) scale(1.1,1.1);
-}
-
-.bc598ResetBtn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 @media(max-width:541px) {
