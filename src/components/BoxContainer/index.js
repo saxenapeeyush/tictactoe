@@ -1,10 +1,9 @@
 import React from "react";
+import { withRouter } from 'react-router-dom';
 
-import { NAME_NOT_SPECIFIED , CHOOSE_X_OR_O_NOT_SPECIFIED , EITHER_X_OR_O , UTILITY } from "../../utils/configs/config";
-import { nullChecker , ticTacToe } from '../../utils/helper';
+import { ticTacToe } from '../../utils/helper';
 
 import Box from "../Box";
-import Header from "../Header";
 import Loader from "../Loader";
 import Button from "../Button";
 import Error from "../Error";
@@ -14,23 +13,33 @@ import "./boxContainer.css";
 
 class BoxContainer extends React.Component {
 
-  state = {
-    boxes: Array(9).fill(null),
-    currentXorO: EITHER_X_OR_O,
-    isLoading: true,
-    winnerName: "",
-    playerNames: UTILITY.initialPlayerNames,
-    errorMessage: "",
-    counter: 0,
-    isGameDrawn : false
-  };
+  constructor(props) {
+
+    super(props);
+
+    const stateOfForm = this.props.location.state.details;
+
+    const initialPlayerNames = stateOfForm.initialPlayerNames;
+
+    const eitherXorO = stateOfForm.eitherXorO;
+
+    this.state = {
+      boxes: Array(9).fill(null),
+      currentXorO: eitherXorO,
+      isLoading: true,
+      winnerName: "",
+      playerNames: initialPlayerNames,
+      errorMessage: "",
+      counter: 0,
+      isGameDrawn : false
+    };
+
+  }
 
   componentDidMount() {
+
     this.initializeLoading();
 
-    setTimeout(() => {
-      this.takeInputFromUser();
-    }, 1000);
   }
 
   render() {
@@ -38,15 +47,16 @@ class BoxContainer extends React.Component {
     const { errorMessage , isLoading , playerNames , winnerName ,currentXorO , isGameDrawn } = this.state;
 
     if (errorMessage.trim()) {
+
       return <Error msg={errorMessage.trim()} />;
 
     } else if (isLoading) {
+
       return <Loader />;
 
     } else
       return (
         <div className="bc598MainContainer">
-          <Header />
           <div className="bc598OuterBoxContainer">
             <div>
               <PlayerNameTagline gameDrawn = {isGameDrawn} isXorO = {currentXorO}
@@ -71,7 +81,7 @@ class BoxContainer extends React.Component {
 
   getButton = () => {
     return (
-      <div className="bc598ResetBtn">
+      <div>
         <Button
           click={this.reset}
           btnName="Reset"
@@ -85,7 +95,6 @@ class BoxContainer extends React.Component {
     const { boxes } = this.state;
     let count = 1;
     return boxes.map((content, idx) => {
-      console.log(content);
       if(count % 3 === 0) {
         count++;
         return (
@@ -114,60 +123,6 @@ class BoxContainer extends React.Component {
       }
     });
   };
-
-  takeInputFromUser = () => {
-    const { playerNames,currentXorO }  = this.state;
-
-    let firstName = prompt(
-      "Enter First Player Name ? ",
-      playerNames.first.firstPlayerName
-    );
-
-    if (nullChecker(firstName)) {
-
-      this.nullCheckerErrorHandler("First",NAME_NOT_SPECIFIED);
-      return;
-
-    } 
-    else if (firstName.trim().length === 0) {
-
-      firstName = playerNames.first.firstPlayerName;
-    
-    }
-
-    const option1 = prompt("Choose X or O ? ", currentXorO);
-    
-    if (nullChecker(option1)) {
-
-      this.nullCheckerErrorHandler(CHOOSE_X_OR_O_NOT_SPECIFIED,"");
-      return;
-
-    }
-
-    const secondName = prompt(
-      "Enter Second Player Name ? ",
-      playerNames.second.secondPlayerName
-    );
-
-    if (nullChecker(secondName)) {
-
-      this.nullCheckerErrorHandler("Second",NAME_NOT_SPECIFIED);
-      return;
-
-    }
-
-    const option2 = option1 === "X" ? "O" : "X";
-
-    const playersObjects = playerNames;
-
-    playersObjects.first.firstPlayerName = firstName.trim();
-    playersObjects.first.XorO = option1;
-
-    playersObjects.second.secondPlayerName = secondName.trim();
-    playersObjects.second.XorO = option2;
-
-    this.setState({ playerNames: playersObjects });
-  }
 
   nullCheckerErrorHandler = (content,nameNotSpecified) => {
 
@@ -265,4 +220,4 @@ class BoxContainer extends React.Component {
   }
 
 }
-export default BoxContainer;
+export default withRouter(BoxContainer);

@@ -1,0 +1,22 @@
+.fo489PlayerForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height : 85vh;
+}
+
+.fo489PlayerForm form {
+  box-shadow: 0 10px 5px #ccc;
+  border:1px solid #eee;
+  padding:3em;
+  background-color:#e6e6e6;
+}
+
+.fo489PlayerForm .radioBtn {
+  color:#014750;
+  font-weight: bold;
+  margin:1rem 0rem;
+  font-size:1.1rem;
+}
+
+

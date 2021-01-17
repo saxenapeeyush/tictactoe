@@ -1,0 +1,20 @@
+:root {
+  --playerLabelFontColor:#014750;
+}
+
+.pl690PlayerLabelContainer label {
+  margin:1rem 0rem;
+  font-size:1.1em;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  color:var(--playerLabelFontColor);
+
+}
+
+.pl690PlayerLabelContainer input {
+  border-radius: 4px;
+  border:1px solid #ccc;
+  width:100%;
+  padding:1rem;
+  margin:1rem 0rem;
+}

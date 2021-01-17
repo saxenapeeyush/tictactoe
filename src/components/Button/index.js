@@ -7,12 +7,12 @@ const Button = (props) => {
   const { btnName , click } = props;
 
   return (
-    <div>
+    <div className ="bu345ResetBtn">
       <button
         onClick={click}
       >
         <div className="bu345FlexBtn">
-          <div>{btnName}</div>
+          <div className = "bu345BtnName">{btnName}</div>
           <div><i className={iconClasses}></i></div>
         </div>
       </button>
